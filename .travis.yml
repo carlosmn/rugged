@@ -10,6 +10,9 @@ rvm:
   - rbx-18mode
   - rbx-19mode
 
+before_install:
+  - git submodule init && (cd vendor/libgit2 && git fetch --detph=1 origin)
+
 # We need the config so the tests don't fail
 script:
   - git config --global user.name 'The rugged tests are fragile'
@@ -23,7 +26,7 @@ branches:
 # Notify development list when needed
 notifications:
  recipients:
-   - vicent@github.com
+   - carlosmn@gmail.com
  email:
    on_success: change
    on_failure: always
